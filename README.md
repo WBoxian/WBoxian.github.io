@@ -5,22 +5,31 @@ Personal website for **Boxian Wen**.
 ## Live Site
 
 - Website: [https://wboxian.github.io/](https://wboxian.github.io/)
+- Chinese page: [https://wboxian.github.io/zh/](https://wboxian.github.io/zh/)
 
-## What This Site Includes
+## Design Direction
 
-- Bilingual personal website with `EN` / `中文` toggle
-- Search, recommendation, ranking, and backend engineering positioning
-- Research profile covering eDNA, computational ecology, and coral-related AI work
-- Support entry with Alipay / PayPal / WeChat QR modal popups
-- CV download and project links
+This site is implemented as a restrained hybrid of:
+
+- `AI Folio`
+- `Academic Pages`
+- `Prism`
+
+The goal is a premium academic-engineering interface with:
+
+- separate English and Chinese pages
+- a dynamic hero instead of a flat static banner
+- strong typography and high whitespace discipline
+- clear algorithm-engineering positioning
+- a secondary research / fully funded PhD narrative
 
 ## Structure
 
-- `index.html`: main page structure
-- `styles.css`: site styling and responsive layout
-- `script.js`: language toggle, reveal animation, and support modal
-- `assets/support/`: donation QR images
-- `assets/resume/`: CV file
+- `index.html`: English landing page
+- `zh/index.html`: Chinese landing page
+- `styles.css`: shared site styling
+- `script.js`: support modal, reveal transitions, dynamic hero canvas
+- `assets/support/`: WeChat, Alipay, and PayPal QR images
 
 ## Related Repository
 
