@@ -5,7 +5,7 @@ const supportContent = {
     title: { en: "WeChat Pay", zh: "微信支付" },
     caption: {
       en: "Thanks for the support. You can scan this WeChat QR code directly.",
-      zh: "感谢支持，可以直接使用微信扫码。"
+      zh: "感谢支持，可以直接使用这张微信付款码。"
     },
     image: "/assets/support/wechat.jpg"
   },
@@ -13,15 +13,15 @@ const supportContent = {
     title: { en: "Alipay", zh: "支付宝" },
     caption: {
       en: "Thanks for the support. You can scan this Alipay QR code directly.",
-      zh: "感谢支持，可以直接使用支付宝扫码。"
+      zh: "感谢支持，可以直接使用这张支付宝付款码。"
     },
     image: "/assets/support/alipay.jpg"
   },
   paypal: {
     title: { en: "PayPal", zh: "PayPal" },
     caption: {
-      en: "Thanks for the coffee. This PayPal QR code works well for international support.",
-      zh: "感谢支持。这张 PayPal 付款码更适合国际赞助。"
+      en: "Thanks for the coffee. This PayPal QR code is suitable for international support.",
+      zh: "感谢支持，这张 PayPal 付款码更适合国际赞助。"
     },
     image: "/assets/support/paypal.png"
   }
@@ -35,9 +35,8 @@ const modalClose = document.getElementById("modal-close");
 
 document.querySelectorAll(".support-button").forEach((button) => {
   button.addEventListener("click", () => {
-    const key = button.dataset.support;
-    const content = supportContent[key];
-    if (!content) {
+    const content = supportContent[button.dataset.support];
+    if (!content || !modal) {
       return;
     }
 
@@ -51,19 +50,27 @@ document.querySelectorAll(".support-button").forEach((button) => {
 });
 
 const closeModal = () => {
+  if (!modal) {
+    return;
+  }
   modal.hidden = true;
   document.body.style.overflow = "";
 };
 
-modalClose.addEventListener("click", closeModal);
-modal.addEventListener("click", (event) => {
-  if (event.target.dataset.closeModal === "true") {
-    closeModal();
-  }
-});
+if (modalClose) {
+  modalClose.addEventListener("click", closeModal);
+}
+
+if (modal) {
+  modal.addEventListener("click", (event) => {
+    if (event.target.dataset.closeModal === "true") {
+      closeModal();
+    }
+  });
+}
 
 window.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && !modal.hidden) {
+  if (event.key === "Escape" && modal && !modal.hidden) {
     closeModal();
   }
 });
@@ -79,100 +86,96 @@ const observer = new IntersectionObserver(
   { threshold: 0.12 }
 );
 
-document.querySelectorAll(".topbar, .support-strip, .hero, .section").forEach((node) => {
-  node.classList.add("reveal");
-  observer.observe(node);
-});
+document.querySelectorAll(".reveal").forEach((node) => observer.observe(node));
 
 const canvas = document.querySelector(".hero-canvas");
 
 if (canvas) {
   const ctx = canvas.getContext("2d");
   const ratio = window.devicePixelRatio || 1;
-  const baseWidth = 520;
-  const baseHeight = 340;
+  const baseWidth = 640;
+  const baseHeight = 420;
   canvas.width = baseWidth * ratio;
   canvas.height = baseHeight * ratio;
   ctx.scale(ratio, ratio);
 
-  const nodes = Array.from({ length: 22 }, (_, index) => ({
-    x: 50 + ((index * 29) % 420),
-    y: 46 + ((index * 43) % 220),
-    vx: ((index % 3) - 1) * 0.2 + 0.12,
-    vy: (((index + 1) % 3) - 1) * 0.16 + 0.09,
-    r: index % 4 === 0 ? 5 : 3.5
+  const nodes = Array.from({ length: 18 }, (_, index) => ({
+    x: 72 + ((index * 37) % 500),
+    y: 72 + ((index * 53) % 260),
+    vx: (((index % 4) - 1.5) * 0.12) + 0.08,
+    vy: ((((index + 2) % 4) - 1.5) * 0.1) + 0.06,
+    r: index % 5 === 0 ? 5 : 3.2
   }));
+
   let tick = 0;
 
+  const drawWave = (offset, amplitude, color) => {
+    ctx.beginPath();
+    for (let x = 0; x <= baseWidth; x += 8) {
+      const y =
+        offset +
+        Math.sin(x * 0.013 + tick * 1.8) * amplitude +
+        Math.cos(x * 0.008 + tick * 1.2) * (amplitude * 0.35);
+      if (x === 0) {
+        ctx.moveTo(x, y);
+      } else {
+        ctx.lineTo(x, y);
+      }
+    }
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 1.1;
+    ctx.stroke();
+  };
+
   const draw = () => {
+    tick += 0.01;
     ctx.clearRect(0, 0, baseWidth, baseHeight);
-    tick += 0.008;
 
     const bg = ctx.createLinearGradient(0, 0, baseWidth, baseHeight);
-    bg.addColorStop(0, "rgba(255,252,247,0.95)");
-    bg.addColorStop(1, "rgba(240,247,244,0.92)");
+    bg.addColorStop(0, "rgba(255,255,255,0.94)");
+    bg.addColorStop(1, "rgba(245,244,240,0.94)");
     ctx.fillStyle = bg;
     ctx.fillRect(0, 0, baseWidth, baseHeight);
 
-    ctx.lineWidth = 1;
-    for (let band = 0; band < 4; band += 1) {
-      ctx.beginPath();
-      for (let x = 0; x <= baseWidth; x += 8) {
-        const y =
-          70 +
-          band * 56 +
-          Math.sin(x * 0.018 + tick * (band + 2)) * (10 + band * 1.5) +
-          Math.cos(x * 0.01 + tick * 3.2) * 4;
-        if (x === 0) {
-          ctx.moveTo(x, y);
-        } else {
-          ctx.lineTo(x, y);
-        }
-      }
-      ctx.strokeStyle = band % 2 === 0 ? "rgba(180,76,36,0.16)" : "rgba(13,107,92,0.16)";
-      ctx.stroke();
-    }
-
-    const gradient = ctx.createLinearGradient(0, 0, baseWidth, baseHeight);
-    gradient.addColorStop(0, "rgba(180,76,36,0.24)");
-    gradient.addColorStop(1, "rgba(13,107,92,0.24)");
+    drawWave(110, 14, "rgba(54,95,143,0.18)");
+    drawWave(190, 18, "rgba(138,90,53,0.13)");
+    drawWave(275, 15, "rgba(54,95,143,0.12)");
+    drawWave(340, 12, "rgba(28,30,36,0.08)");
 
     for (let i = 0; i < nodes.length; i += 1) {
-      const a = nodes[i];
-      a.x += a.vx;
-      a.y += a.vy;
+      const node = nodes[i];
+      node.x += node.vx;
+      node.y += node.vy;
 
-      if (a.x < 20 || a.x > baseWidth - 20) {
-        a.vx *= -1;
+      if (node.x < 30 || node.x > baseWidth - 30) {
+        node.vx *= -1;
       }
-      if (a.y < 20 || a.y > baseHeight - 20) {
-        a.vy *= -1;
+      if (node.y < 30 || node.y > baseHeight - 30) {
+        node.vy *= -1;
       }
 
       for (let j = i + 1; j < nodes.length; j += 1) {
-        const b = nodes[j];
-        const dx = a.x - b.x;
-        const dy = a.y - b.y;
+        const peer = nodes[j];
+        const dx = node.x - peer.x;
+        const dy = node.y - peer.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
 
-        if (distance < 132) {
-          ctx.strokeStyle = `rgba(26,40,64,${0.14 - distance / 1200})`;
-          ctx.lineWidth = 1;
+        if (distance < 138) {
           ctx.beginPath();
-          ctx.moveTo(a.x, a.y);
-          ctx.lineTo(b.x, b.y);
+          ctx.moveTo(node.x, node.y);
+          ctx.lineTo(peer.x, peer.y);
+          ctx.strokeStyle = `rgba(30, 36, 44, ${0.11 - distance / 1500})`;
+          ctx.lineWidth = 0.9;
           ctx.stroke();
         }
       }
 
-      ctx.fillStyle = gradient;
+      const fill = ctx.createLinearGradient(node.x - 6, node.y - 6, node.x + 6, node.y + 6);
+      fill.addColorStop(0, "rgba(54,95,143,0.72)");
+      fill.addColorStop(1, "rgba(138,90,53,0.64)");
+      ctx.fillStyle = fill;
       ctx.beginPath();
-      ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
-      ctx.fill();
-
-      ctx.fillStyle = "rgba(26,40,64,0.72)";
-      ctx.beginPath();
-      ctx.arc(a.x, a.y, 1.2, 0, Math.PI * 2);
+      ctx.arc(node.x, node.y, node.r, 0, Math.PI * 2);
       ctx.fill();
     }
 

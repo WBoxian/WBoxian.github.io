@@ -6,171 +6,154 @@
     <title>Boxian Wen | 算法工程师</title>
     <meta
       name="description"
-      content="Boxian Wen 个人主页：算法工程、搜索推荐系统、以及 AI 多模态珊瑚保护研究方向。"
+      content="Boxian Wen 个人主页，聚焦算法工程、搜索推荐系统，以及研究驱动的智能系统设计。"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=IBM+Plex+Serif:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body data-page-lang="zh">
-    <div class="page-shell">
+    <div class="ambient ambient-left"></div>
+    <div class="ambient ambient-right"></div>
+
+    <div class="site-shell">
       <header class="topbar reveal">
-        <div class="brand">
+        <a class="brand" href="/zh/">
           <span class="brand-mark">BW</span>
-          <div>
+          <span class="brand-copy">
             <strong>Boxian Wen</strong>
-            <span>算法工程师 · 工程与研究并重</span>
-          </div>
-        </div>
+            <small>算法工程师</small>
+          </span>
+        </a>
 
         <nav class="language-nav" aria-label="语言切换">
           <a class="lang-pill" href="/">EN</a>
           <a class="lang-pill active" href="/zh/">中文</a>
         </nav>
 
-        <div class="nav-links">
+        <div class="top-actions">
+          <a href="mailto:boxian.wen@outlook.com">邮箱</a>
           <a href="https://github.com/WBoxian">GitHub</a>
           <a href="https://linkedin.com/in/boxian-wen-6b00692b8">LinkedIn</a>
-          <a href="mailto:boxian.wen@outlook.com">邮箱</a>
         </div>
       </header>
 
-      <section class="support-strip reveal">
-        <p>欢迎赞助</p>
-        <div class="support-actions">
-          <button class="support-button" data-support="wechat" type="button">
-            <img src="https://cdn.simpleicons.org/wechat/07C160" alt="" />
-            <span>WeChat</span>
-          </button>
-          <button class="support-button" data-support="alipay" type="button">
-            <img src="https://cdn.simpleicons.org/alipay/1677FF" alt="" />
-            <span>Alipay</span>
-          </button>
-          <button class="support-button" data-support="paypal" type="button">
-            <img src="https://cdn.simpleicons.org/paypal/003087" alt="" />
-            <span>PayPal</span>
-          </button>
-        </div>
-      </section>
-
-      <main>
+      <main class="content">
         <section class="hero reveal">
           <div class="hero-copy">
-            <p class="eyebrow">搜索 · 推荐 · 排序 · 后端智能系统</p>
-            <h1>用真正可落地的工程方式，做搜索推荐与智能系统。</h1>
+            <p class="eyebrow">Research-informed engineering</p>
+            <h1>面向搜索、推荐与智能后端系统的算法工程实践。</h1>
             <p class="hero-lead">
-              我拥有 UCL 计算生态学研究背景，目前正明确转向算法工程方向，核心关注推荐系统、搜索排序、数据链路与后端智能系统，同时保持对 AI 多模态珊瑚保护研究的长期兴趣。
+              我当前以算法工程师岗位为主线，持续打磨检索、排序、推荐与数据流程设计；
+              同时保持对 AI 辅助生态研究、尤其是珊瑚保护相关方向的长期兴趣。
             </p>
-            <div class="hero-actions">
-              <a class="button primary" href="https://github.com/WBoxian/Rednote-Qilin-Search-Rec-System">重点项目</a>
-              <a class="button secondary" href="https://github.com/WBoxian">资料仓库</a>
-            </div>
-            <div class="hero-facts">
-              <article>
+
+            <div class="hero-notes">
+              <div>
                 <span>当前目标</span>
-                <strong>算法工程师岗位</strong>
-              </article>
-              <article>
-                <span>并行方向</span>
-                <strong>AI 珊瑚保护全奖博士</strong>
-              </article>
-              <article>
-                <span>当前主项目</span>
-                <strong>搜索推荐系统</strong>
-              </article>
+                <strong>算法工程师</strong>
+              </div>
+              <div>
+                <span>主项目</span>
+                <strong>Rednote Qilin Search & Recommendation System</strong>
+              </div>
+              <div>
+                <span>并行关注</span>
+                <strong>AI + 多模态珊瑚保护全奖博士机会</strong>
+              </div>
+            </div>
+
+            <div class="hero-actions">
+              <a class="button primary" href="https://github.com/WBoxian/Rednote-Qilin-Search-Rec-System">查看项目</a>
+              <a class="button secondary" href="https://github.com/WBoxian">GitHub 资料页</a>
             </div>
           </div>
 
-          <aside class="hero-visual">
-            <div class="visual-card">
-              <p class="visual-label">设计方向</p>
-              <h2>AI Folio × Academic Pages × Prism</h2>
-              <p>
-                以学术感和工程感为主，不做模板化营销站；用克制的排版、信息层级和动态头图来强化可信度与辨识度。
-              </p>
-            </div>
-            <div class="signal-stage">
-              <canvas id="hero-canvas-zh" class="hero-canvas" width="520" height="340"></canvas>
-              <div class="signal-overlay">
-                <span class="signal-chip">检索</span>
-                <span class="signal-chip">排序</span>
-                <span class="signal-chip">多模态生态</span>
-              </div>
-              <div class="signal-caption">
-                <span>算法工程</span>
-                <span>AI 珊瑚保护</span>
+          <aside class="hero-stage">
+            <div class="stage-panel">
+              <p class="stage-label">Signal Map</p>
+              <canvas id="hero-canvas-zh" class="hero-canvas" width="640" height="420"></canvas>
+              <div class="stage-tags">
+                <span>检索</span>
+                <span>排序</span>
+                <span>特征工程</span>
+                <span>生态 AI</span>
               </div>
             </div>
           </aside>
         </section>
 
-        <section class="section reveal">
+        <section class="section section-grid reveal">
           <div class="section-head">
-            <p class="section-tag">核心概览</p>
-            <h2>双主线，但主次非常明确。</h2>
+            <p class="section-tag">概览</p>
+            <h2>工程是主线，研究背景则持续提供问题意识与分析框架。</h2>
           </div>
-          <div class="cards-grid">
-            <article class="info-card">
-              <h3>主求职方向</h3>
-              <p>算法工程师、推荐算法、搜索排序，以及后端智能系统相关岗位。</p>
+
+          <div class="grid-cards">
+            <article class="card">
+              <span>教育背景</span>
+              <strong>UCL · 计算生态学</strong>
+              <p>研究型硕士训练，长期围绕生态数据分析与计算方法开展工作。</p>
             </article>
-            <article class="info-card">
-              <h3>研究兴趣</h3>
-              <p>AI、多模态学习、珊瑚保护与计算生态学方向的全奖博士机会。</p>
+            <article class="card">
+              <span>基础背景</span>
+              <strong>中山大学 · 海洋生物学</strong>
+              <p>生物学基础延展到转录组、环境 DNA 与生信分析流程。</p>
             </article>
-            <article class="info-card">
-              <h3>教育背景</h3>
-              <p>UCL 计算生态学研究型硕士，建立在中山大学海洋生物学的学科基础之上。</p>
-            </article>
-            <article class="info-card">
-              <h3>工程风格</h3>
-              <p>偏好边界清晰、资源可控、能真正落地的系统设计，而不是只停留在模型层面。</p>
+            <article class="card">
+              <span>当前方向</span>
+              <strong>搜索、推荐、智能后端系统</strong>
+              <p>强调可落地的检索、排序与服务链路设计，而不是停留在单点算法实现。</p>
             </article>
           </div>
         </section>
 
         <section class="section reveal">
+          <div class="section-head">
+            <p class="section-tag">研究线索</p>
+            <h2>几个持续影响我工程判断方式的研究主题。</h2>
+          </div>
+
+          <div class="timeline">
+            <article class="timeline-item">
+              <h3>环境 DNA 与 CoralNet 辅助分析下的珊瑚群落评估</h3>
+              <p>将环境 DNA 流程与 AI 辅助注释结合，用于珊瑚群落结构分析与生态解释。</p>
+            </article>
+            <article class="timeline-item">
+              <h3>空气环境 DNA 在英国蝙蝠调查中的应用</h3>
+              <p>参与空气环境 DNA 宏条形码分析与研究展示，形成面向论文输出的分析路径。</p>
+            </article>
+            <article class="timeline-item">
+              <h3>深海贻贝转录组分析</h3>
+              <p>围绕宿主防御、适应机制与极端海洋环境展开转录组相关研究。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section section-grid reveal">
           <div class="section-head">
             <p class="section-tag">重点项目</p>
             <h2>Rednote Qilin Search & Recommendation System</h2>
           </div>
-          <div class="project-card">
-            <div>
-              <p>一个受小红书启发的端到端个人项目，覆盖检索、排序、推荐、特征工程与后端服务拆分。</p>
-            </div>
-            <ul class="project-points">
-              <li>检索与排序链路设计</li>
-              <li>特征工程与数据处理</li>
-              <li>Python 后端服务与可维护架构</li>
-              <li>基于真实硬件约束进行工程权衡</li>
-            </ul>
-          </div>
-        </section>
 
-        <section class="section reveal">
-          <div class="section-head">
-            <p class="section-tag">科研亮点</p>
-            <h2>有论文轨迹支撑的研究经历。</h2>
-          </div>
-          <div class="timeline">
-            <article class="timeline-item">
-              <div class="timeline-meta"><span>2024</span><span>UCL · ZSL</span></div>
-              <h3>结合环境 DNA 与 AI 图像注释进行珊瑚群落组成评估</h3>
-              <p>独立完成珊瑚水体样本生信分析，并结合 CoralNet 进行群落组成辅助评估。</p>
+          <div class="project-layout">
+            <article class="card project-card">
+              <p>
+                一个受小红书启发的端到端个人项目，围绕检索、排序、推荐、特征工程与后端系统拆分展开，
+                并在真实本地硬件约束下进行工程取舍。
+              </p>
             </article>
-            <article class="timeline-item">
-              <div class="timeline-meta"><span>2023-2024</span><span>UCL</span></div>
-              <h3>空气环境 DNA 在英国蝙蝠调查中的应用评估</h3>
-              <p>负责空气环境 DNA 宏条形码数据的生信分析与结果呈现，目标以第一作者推进论文发表。</p>
-            </article>
-            <article class="timeline-item">
-              <div class="timeline-meta"><span>2022-2023</span><span>SYSU Lab</span></div>
-              <h3>深海贻贝冷泉与热液环境下的转录组比较分析</h3>
-              <p>完成转录组分析与实验验证，并形成已发表 SCI 论文。</p>
+            <article class="card list-card">
+              <ul>
+                <li>检索与排序链路设计</li>
+                <li>特征工程与数据处理</li>
+                <li>后端服务结构化拆分</li>
+                <li>资源受限下的实现权衡</li>
+              </ul>
             </article>
           </div>
         </section>
@@ -178,31 +161,48 @@
         <section class="section reveal">
           <div class="section-head">
             <p class="section-tag">技术栈</p>
-            <h2>我熟悉的一组核心工具。</h2>
+            <h2>当前主要使用的一组工具与系统。</h2>
           </div>
+
           <div class="stack-list">
             <span>Python</span>
             <span>SQL</span>
-            <span>Linux</span>
             <span>PyTorch</span>
             <span>TensorFlow</span>
+            <span>FastAPI</span>
+            <span>Elasticsearch</span>
+            <span>Redis</span>
             <span>Spark</span>
             <span>Hadoop</span>
             <span>Hive</span>
             <span>Kafka</span>
+            <span>Docker</span>
+            <span>Linux</span>
             <span>Bioinformatics</span>
+            <span>eDNA</span>
+            <span>CoralNet</span>
           </div>
         </section>
 
-        <section class="section reveal">
-          <div class="section-head">
-            <p class="section-tag">联系我</p>
-            <h2>欢迎就岗位、合作或研究机会与我联系。</h2>
+        <section class="section support-section reveal">
+          <div class="support-copy">
+            <p class="section-tag">支持</p>
+            <h2>欢迎赞助。</h2>
+            <p>如果这些内容对你有帮助，可以在这里支持我继续做下去。</p>
           </div>
-          <div class="contact-card">
-            <a href="mailto:boxian.wen@outlook.com">boxian.wen@outlook.com</a>
-            <a href="https://github.com/WBoxian">GitHub</a>
-            <a href="https://linkedin.com/in/boxian-wen-6b00692b8">LinkedIn</a>
+          <div class="support-actions">
+            <button class="support-button" data-support="wechat" type="button">
+              <img src="https://cdn.simpleicons.org/wechat/07C160" alt="" />
+              <span>WeChat</span>
+            </button>
+            <button class="support-button" data-support="alipay" type="button">
+              <img src="https://cdn.simpleicons.org/alipay/1677FF" alt="" />
+              <span>Alipay</span>
+            </button>
+            <button class="support-button" data-support="paypal" type="button">
+              <img src="https://cdn.simpleicons.org/paypal/003087" alt="" />
+              <span>PayPal</span>
+            </button>
           </div>
         </section>
       </main>
