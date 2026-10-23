@@ -95,16 +95,43 @@ if (canvas) {
   canvas.height = baseHeight * ratio;
   ctx.scale(ratio, ratio);
 
-  const nodes = Array.from({ length: 18 }, (_, index) => ({
-    x: 60 + ((index * 31) % 400),
-    y: 40 + ((index * 47) % 240),
-    vx: ((index % 3) - 1) * 0.15 + 0.1,
-    vy: (((index + 1) % 3) - 1) * 0.12 + 0.08,
-    r: index % 4 === 0 ? 5 : 3
+  const nodes = Array.from({ length: 22 }, (_, index) => ({
+    x: 50 + ((index * 29) % 420),
+    y: 46 + ((index * 43) % 220),
+    vx: ((index % 3) - 1) * 0.2 + 0.12,
+    vy: (((index + 1) % 3) - 1) * 0.16 + 0.09,
+    r: index % 4 === 0 ? 5 : 3.5
   }));
+  let tick = 0;
 
   const draw = () => {
     ctx.clearRect(0, 0, baseWidth, baseHeight);
+    tick += 0.008;
+
+    const bg = ctx.createLinearGradient(0, 0, baseWidth, baseHeight);
+    bg.addColorStop(0, "rgba(255,252,247,0.95)");
+    bg.addColorStop(1, "rgba(240,247,244,0.92)");
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, baseWidth, baseHeight);
+
+    ctx.lineWidth = 1;
+    for (let band = 0; band < 4; band += 1) {
+      ctx.beginPath();
+      for (let x = 0; x <= baseWidth; x += 8) {
+        const y =
+          70 +
+          band * 56 +
+          Math.sin(x * 0.018 + tick * (band + 2)) * (10 + band * 1.5) +
+          Math.cos(x * 0.01 + tick * 3.2) * 4;
+        if (x === 0) {
+          ctx.moveTo(x, y);
+        } else {
+          ctx.lineTo(x, y);
+        }
+      }
+      ctx.strokeStyle = band % 2 === 0 ? "rgba(180,76,36,0.16)" : "rgba(13,107,92,0.16)";
+      ctx.stroke();
+    }
 
     const gradient = ctx.createLinearGradient(0, 0, baseWidth, baseHeight);
     gradient.addColorStop(0, "rgba(180,76,36,0.24)");
@@ -128,8 +155,8 @@ if (canvas) {
         const dy = a.y - b.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
 
-        if (distance < 120) {
-          ctx.strokeStyle = `rgba(26,40,64,${0.12 - distance / 1200})`;
+        if (distance < 132) {
+          ctx.strokeStyle = `rgba(26,40,64,${0.14 - distance / 1200})`;
           ctx.lineWidth = 1;
           ctx.beginPath();
           ctx.moveTo(a.x, a.y);
@@ -141,6 +168,11 @@ if (canvas) {
       ctx.fillStyle = gradient;
       ctx.beginPath();
       ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = "rgba(26,40,64,0.72)";
+      ctx.beginPath();
+      ctx.arc(a.x, a.y, 1.2, 0, Math.PI * 2);
       ctx.fill();
     }
 
