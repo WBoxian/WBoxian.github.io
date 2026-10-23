@@ -110,7 +110,7 @@ h1,h2,h3,p { margin: 0; }
 .primary:hover { color: var(--on-accent); filter: brightness(1.1); }
 .primary svg { width: 14px; height: 14px; }
 .text-link { font-size: 11px; }
-.numbers { display: grid; grid-template-columns: repeat(3,1fr); padding: 21px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.numbers { display: grid; grid-template-columns: repeat(2,1fr); padding: 21px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .numbers > div { padding: 0 20px; border-right: 1px solid var(--line); }
 .numbers > div:first-child { padding-left: 0; }
 .numbers > div:last-child { border: 0; }
