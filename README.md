@@ -2,15 +2,16 @@
 
 基于 [dapraws 的星露谷个人主页模板](https://github.com/dapraws/dapraws.github.io) 改编，展示 AI 应用兴趣、项目、教育、科研与论文。
 
-- 英文：https://wboxian.github.io/
-- 中文：https://wboxian.github.io/zh/
+- 中文（默认）：https://wboxian.github.io/
+- 英文：https://wboxian.github.io/en/
+- 旧版 `/zh/` 链接自动跳转至中文首页。
 - 原生 HTML、CSS 与 JavaScript，通过 GitHub Pages 部署。
 - 明暗主题跟随系统，手动选择后在浏览器本地保存。
 - 中英文内容切换保留当前内容锚点；手机使用折叠菜单。
 
 ## 结构
 
-- `index.html`、`zh/index.html`：中英文页面。
+- `index.html`：中文首页；`en/index.html`：英文页面；`zh/index.html`：旧链接跳转。
 - `css/style.css`：上游模板样式；`css/custom.css`：简历内容、双主题与响应式适配。
 - `js/custom.js`：菜单、主题与语言交互。
 - `images/`：公开头像。
@@ -22,7 +23,7 @@
 python -m http.server 8000
 ```
 
-使用 http://localhost:8000/ 或 http://localhost:8000/zh/。
+使用 http://localhost:8000/ 或 http://localhost:8000/en/。
 
 ## 内容边界
 
