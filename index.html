@@ -8,6 +8,7 @@
       name="description"
       content="Boxian Wen personal website focused on algorithm engineering, search and recommendation systems, and research-informed intelligent systems."
     />
+    <link rel="icon" type="image/png" href="/assets/profile/avatar-96.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -23,7 +24,9 @@
     <div class="site-shell">
       <header class="topbar reveal">
         <a class="brand" href="/">
-          <span class="brand-mark">BW</span>
+          <span class="brand-mark">
+            <img src="/assets/profile/avatar.jpg" alt="Avatar" />
+          </span>
           <span class="brand-copy">
             <strong>Boxian Wen</strong>
             <small>Algorithm Engineer</small>
@@ -46,10 +49,10 @@
         <section class="hero reveal">
           <div class="hero-copy">
             <p class="eyebrow">Research-informed engineering</p>
-            <h1>Search, recommendation, and intelligent backend systems.</h1>
+            <h1>Search, recommendation, and online intelligence.</h1>
             <p class="hero-lead">
-              I am building toward algorithm-engineering roles through production-minded retrieval, ranking, and data
-              workflow design, with a parallel research thread in AI-assisted ecology and coral conservation.
+              I build production-minded retrieval, ranking, and online-serving systems, while keeping a parallel
+              research interest in AI-assisted ecology and coral conservation.
             </p>
 
             <div class="hero-notes">
@@ -59,11 +62,11 @@
               </div>
               <div>
                 <span>Primary build</span>
-                <strong>Rednote Qilin Search & Recommendation System</strong>
+                <strong>Qilin Search & Recommendation System</strong>
               </div>
               <div>
                 <span>Parallel interest</span>
-                <strong>Fully funded AI + multimodal coral research PhD</strong>
+                <strong>AI + multimodal coral research PhD</strong>
               </div>
             </div>
 
@@ -75,7 +78,14 @@
 
           <aside class="hero-stage">
             <div class="stage-panel">
-              <p class="stage-label">Signal Map</p>
+              <div class="stage-profile">
+                <img class="stage-avatar" src="/assets/profile/avatar.jpg" alt="Avatar" />
+                <div>
+                  <p class="stage-label">Current Build</p>
+                  <strong>Qilin Search & Recommendation System</strong>
+                  <small>11/2025 – 05/2026 · 2M notes · 15k users · ~150ms latency</small>
+                </div>
+              </div>
               <canvas id="hero-canvas-en" class="hero-canvas" width="640" height="420"></canvas>
               <div class="stage-tags">
                 <span>retrieval</span>
@@ -90,7 +100,7 @@
         <section class="section section-grid reveal">
           <div class="section-head">
             <p class="section-tag">Profile</p>
-            <h2>Engineering is the main line; research remains the source of the questions.</h2>
+            <h2>Engineering first, with research discipline behind it.</h2>
           </div>
 
           <div class="grid-cards">
@@ -107,7 +117,7 @@
             <article class="card">
               <span>Direction</span>
               <strong>Search, Recommendation, Backend Systems</strong>
-              <p>Focused on building practical retrieval, ranking, and serving systems with clear engineering tradeoffs.</p>
+              <p>Focused on systems that can be trained, deployed, and iterated under real engineering constraints.</p>
             </article>
           </div>
         </section>
@@ -115,13 +125,13 @@
         <section class="section reveal">
           <div class="section-head">
             <p class="section-tag">Research Thread</p>
-            <h2>Selected themes that still shape my engineering perspective.</h2>
+            <h2>Research themes that still shape how I think about systems.</h2>
           </div>
 
           <div class="timeline">
             <article class="timeline-item">
               <h3>Coral community assessment with eDNA and CoralNet-assisted analysis</h3>
-              <p>Combining ecological data workflows with AI-assisted annotation to interpret coral community structure.</p>
+              <p>Combining ecological workflows with AI-assisted annotation to interpret coral community structure.</p>
             </article>
             <article class="timeline-item">
               <h3>Airborne environmental DNA for British bat surveys</h3>
@@ -140,47 +150,82 @@
             <h2>Rednote Qilin Search & Recommendation System</h2>
           </div>
 
-          <div class="project-layout">
+          <div class="project-meta">
+            <span>11/2025 – 05/2026</span>
+            <span>~2M notes</span>
+            <span>15k users</span>
+            <span>50k search + 100k rec samples</span>
+          </div>
+
+          <div class="project-layout project-layout-wide">
             <article class="card project-card">
+              <span>Workflow</span>
               <p>
-                An end-to-end personal build inspired by Xiaohongshu, centered on retrieval, ranking, recommendation,
-                feature engineering, and backend decomposition under realistic local hardware constraints.
+                Built a unified search-and-recommendation pipeline from data preprocessing and feature engineering to
+                retrieval, coarse ranking, final ranking, deployment, and online serving.
               </p>
             </article>
-            <article class="card list-card">
-              <ul>
-                <li>retrieval and ranking pipeline design</li>
-                <li>feature engineering and data processing</li>
-                <li>backend service structuring</li>
-                <li>resource-aware implementation choices</li>
-              </ul>
+            <article class="card project-card">
+              <span>Modeling</span>
+              <p>
+                Combined DSSM dual-tower retrieval with Faiss, Swing, and UserCF; used LambdaMART with LightGBM and
+                XGBoost for coarse ranking; and DIEN for sequence-aware final ranking.
+              </p>
             </article>
+            <article class="card project-card">
+              <span>Online Serving</span>
+              <p>
+                Served through FastAPI and Redis, with real-time behavior writeback and linked search-recommendation
+                updates. End-to-end latency stays around 150ms.
+              </p>
+            </article>
+          </div>
+
+          <div class="metric-grid">
+            <article class="card metric-card">
+              <span>Search Metrics</span>
+              <strong>HitRate@500 0.88 · Recall@500 0.65 · MRR@100 0.11 · NDCG@10 0.69 · AUC 0.77</strong>
+            </article>
+            <article class="card metric-card">
+              <span>Recommendation Metrics</span>
+              <strong>HitRate@500 0.99 · Recall@500 0.99 · NDCG@10 0.87 · AUC 0.84</strong>
+            </article>
+          </div>
+
+          <div class="linked-stack">
+            <a href="https://www.python.org/">Python</a>
+            <a href="https://fastapi.tiangolo.com/">FastAPI</a>
+            <a href="https://vuejs.org/">Vue 3</a>
+            <a href="https://www.typescriptlang.org/">TypeScript</a>
+            <a href="https://redis.io/">Redis</a>
+            <a href="https://duckdb.org/">DuckDB</a>
+            <a href="https://faiss.ai/">Faiss</a>
+            <a href="https://lightgbm.readthedocs.io/">LightGBM</a>
+            <a href="https://xgboost.readthedocs.io/">XGBoost</a>
+            <a href="https://www.tensorflow.org/recommenders/examples/dcn">DSSM</a>
+            <a href="https://arxiv.org/abs/1809.03672">DIEN</a>
           </div>
         </section>
 
         <section class="section reveal">
           <div class="section-head">
             <p class="section-tag">Stack</p>
-            <h2>Core tools and systems I use most often.</h2>
+            <h2>Core tools and systems.</h2>
           </div>
 
-          <div class="stack-list">
-            <span>Python</span>
-            <span>SQL</span>
-            <span>PyTorch</span>
-            <span>TensorFlow</span>
-            <span>FastAPI</span>
-            <span>Elasticsearch</span>
-            <span>Redis</span>
-            <span>Spark</span>
-            <span>Hadoop</span>
-            <span>Hive</span>
-            <span>Kafka</span>
-            <span>Docker</span>
-            <span>Linux</span>
-            <span>Bioinformatics</span>
-            <span>eDNA</span>
-            <span>CoralNet</span>
+          <div class="stack-list linked-stack">
+            <a href="https://www.python.org/">Python</a>
+            <a href="https://fastapi.tiangolo.com/">FastAPI</a>
+            <a href="https://redis.io/">Redis</a>
+            <a href="https://duckdb.org/">DuckDB</a>
+            <a href="https://faiss.ai/">Faiss</a>
+            <a href="https://lightgbm.readthedocs.io/">LightGBM</a>
+            <a href="https://xgboost.readthedocs.io/">XGBoost</a>
+            <a href="https://vuejs.org/">Vue 3</a>
+            <a href="https://www.typescriptlang.org/">TypeScript</a>
+            <a href="https://www.docker.com/">Docker</a>
+            <a href="https://www.kernel.org/">Linux</a>
+            <a href="https://coralnet.ucsd.edu/">CoralNet</a>
           </div>
         </section>
 
