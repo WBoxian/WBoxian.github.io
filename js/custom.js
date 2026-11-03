@@ -24,9 +24,6 @@ document.addEventListener('keydown', event => {
   }
 });
 const themeButton = document.getElementById('theme');
-const system = matchMedia('(prefers-color-scheme:dark)');
-let manual = false;
-try { manual = ['light', 'dark'].includes(localStorage.getItem('stardew-theme')); } catch {}
 function paintTheme(theme) {
   document.documentElement.dataset.theme = theme;
   const label = theme === 'dark' ? (chinese ? '切换日间主题' : 'Switch to day theme') : (chinese ? '切换夜间主题' : 'Switch to night theme');
@@ -34,15 +31,11 @@ function paintTheme(theme) {
   themeButton.title = label;
   themeButton.setAttribute('aria-pressed', String(theme === 'dark'));
 }
-paintTheme(document.documentElement.dataset.theme || (system.matches ? 'dark' : 'light'));
+paintTheme(document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light');
 themeButton.addEventListener('click', () => {
   const theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-  manual = true;
   paintTheme(theme);
   try { localStorage.setItem('stardew-theme', theme); } catch {}
-});
-system.addEventListener('change', event => {
-  if (!manual) paintTheme(event.matches ? 'dark' : 'light');
 });
 
 // Language links intentionally target #top, including when switching from a section.

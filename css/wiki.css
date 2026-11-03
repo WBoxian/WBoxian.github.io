@@ -106,7 +106,8 @@ main > section {
 dt { font: 16px/1.6 Pixelify, Fusion, sans-serif; }
 dd { margin: 0; min-width: 0; font-size: 12px; overflow-wrap: anywhere; }
 .interest-slots { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 9px; }
-.interest-slots > div { text-align: center; padding: 13px 3px 9px; min-width: 0; background: var(--soft); border: 5px solid transparent; border-image: var(--frame) 8 / 5px / 0 round; }
+.interest-slots > a { display: block; text-align: center; padding: 13px 3px 9px; min-width: 0; color: var(--ink); background: var(--soft); border: 5px solid transparent; border-image: var(--frame) 8 / 5px / 0 round; }
+.interest-slots > a:hover { background: var(--panel); text-decoration: none; }
 .interest-slots img { width: 34px; height: 34px; display: block; margin: 0 auto 9px; }
 .interest-slots span { display: block; font: 14px/1.4 Pixelify, Fusion, sans-serif; overflow-wrap: anywhere; }
 .project-top { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 20px; }
@@ -141,6 +142,7 @@ summary { font-size: 13px; }
 .timeline-title { display: flex; align-items: center; gap: 10px; font: 21px/1.5 Pixelify, Fusion, sans-serif; margin: 25px 0 18px; }
 .timeline { border-left: 3px double var(--line); padding-left: 24px; margin-left: 14px; }
 .timeline article { position: relative; padding-bottom: 26px; }
+.timeline article[id] { scroll-margin-top: 16px; }
 .timeline article:last-child { padding-bottom: 0; }
 .timeline article::before { content: ''; width: 8px; height: 8px; background: var(--green); border: 3px solid var(--paper); position: absolute; left: -33px; top: 5px; }
 .timeline time { font: 14px Pixelify, sans-serif; color: var(--muted); }
