@@ -1,0 +1,127 @@
+{
+  "repository": "WBoxian/Rednote-Qilin-Search-Rec-System",
+  "synced_at": "2026-11-03",
+  "source_file": "src/backend/online/full_test_metrics.json",
+  "source_blob_sha": "c03f821b3a4233167cce06426b0e77288b118e76",
+  "protocol": {
+    "name": "official_full_test_bundle_bound_v2",
+    "full_test": true,
+    "held_out": false,
+    "strict_acceptance": "blocked",
+    "sampling": "none",
+    "label": "binary_click",
+    "evaluated_at": "2026-11-02",
+    "publication_status": "active_bundle_bound",
+    "strict_acceptance_reasons": [
+      "feature_point_in_time_lineage_unknown",
+      "official_test_previously_observed"
+    ],
+    "warning": "全量测试集，测试集已被观察；特征时间隔离未完成核验。排序为完整日志曝光条件评估，端到端为已知正例保留评估。"
+  },
+  "scenes": {
+    "search": {
+      "pipeline": {
+        "HitRate@10": 0.5523255813953488,
+        "HitRate@50": 0.7842377260981912,
+        "Recall@100": 0.6370592613868877,
+        "known_positive_NDCG@10": 0.22252257141416532,
+        "MRR@10": 0.2774004347647759,
+        "MRR@100": 0.2904590795771922,
+        "requests": 6192,
+        "positive_requests": 6192,
+        "empty_candidate_requests": 0,
+        "known_positive_pairs_pool": 15959,
+        "mean_candidates": 160,
+        "known_positive_pairs_top10": 5887,
+        "known_positive_pairs_top50": 12624,
+        "known_positive_pairs_top100": 14982,
+        "scope": "Full original test known-click retention after selected pipeline; all test positives form IDCG; unexposed candidates have no invented click labels"
+      },
+      "ranking": {
+        "scope": "complete original official test logged exposures; repeated impressions retained; NOT serving funnel",
+        "label": "binary click",
+        "rows": 128191,
+        "all_requests": 6192,
+        "NDCG@10": 0.5467512038564768,
+        "AUC": 0.5813051553238919,
+        "GAUC": 0.5670798820506202,
+        "gauc_group": "user_idx",
+        "gauc_weight": "exposure count of users with both classes",
+        "gauc_effective_users": 2542,
+        "gauc_effective_rows": 128176,
+        "gauc_excluded_users": 6,
+        "zero_positive_requests": 0,
+        "random_expected_NDCG@10": 0.48880826128892707,
+        "NDCG@10_user_cluster_CI95": [
+          0.5364638264596365,
+          0.5552662311030021
+        ],
+        "tie_policy": "average DCG over equal-score permutations; AUC ties count 0.5",
+        "sampled_groups": 6192,
+        "effective_groups": 6192,
+        "selection_split": "train_internal_validation"
+      }
+    },
+    "rec": {
+      "pipeline": {
+        "all_requests": 11115,
+        "positive_requests": 11115,
+        "zero_positive_requests": 0,
+        "positive_pairs": 44683,
+        "sampled_groups": 11115,
+        "effective_groups": 11115,
+        "empty_candidate_requests": 0,
+        "candidate_pairs": 5557500,
+        "candidate_budget": 500,
+        "mean_candidates": 500,
+        "scope": "All original test requests; unique clicked request-item pairs; actual top500 retrieval; no forced positives",
+        "denominator": "All positive original test requests, including zero-hit and empty-candidate requests",
+        "label": "binary click > 0; repeated positive impressions deduplicated per request-item",
+        "known_positive_NDCG@10": 0.0049192179956090015,
+        "HitRate@10": 0.02078272604588394,
+        "known_positive_pairs_top10": 236,
+        "HitRate@50": 0.06612685560053981,
+        "known_positive_pairs_top50": 801,
+        "HitRate@100": 0.10742240215924427,
+        "known_positive_pairs_top100": 1371,
+        "HitRate@500": 0.23022941970310393,
+        "known_positive_pairs_top500": 3343,
+        "Recall@100": 0.040986764627112,
+        "MicroRecall@100": 0.030682810017232505,
+        "Recall@500": 0.09552625082915898,
+        "MicroRecall@500": 0.07481592551977262,
+        "MRR@10": 0.006998443401952173,
+        "MRR@100": 0.009548191264734048,
+        "MedianFirstHitRank": 114,
+        "MedianFirstHitRank_among_hits_at500": 114,
+        "median_scope": "Only requests with a hit in actual top500; misses excluded from median and reported separately",
+        "missed_requests_at_500": 8556,
+        "missed_requests@500": 8556
+      },
+      "ranking": {
+        "scope": "complete original official test logged exposures; repeated impressions retained; NOT serving funnel",
+        "label": "binary click",
+        "rows": 182567,
+        "all_requests": 11115,
+        "NDCG@10": 0.619474028632609,
+        "AUC": 0.6142788164935501,
+        "GAUC": 0.6211497181691649,
+        "gauc_group": "user_idx",
+        "gauc_weight": "exposure count of users with both classes",
+        "gauc_effective_users": 4563,
+        "gauc_effective_rows": 182522,
+        "gauc_excluded_users": 13,
+        "zero_positive_requests": 0,
+        "random_expected_NDCG@10": 0.5317232815293095,
+        "NDCG@10_user_cluster_CI95": [
+          0.61112277617378,
+          0.627086896136012
+        ],
+        "tie_policy": "average DCG over equal-score permutations; AUC ties count 0.5",
+        "sampled_groups": 11115,
+        "effective_groups": 11115,
+        "selection_split": "train_internal_validation"
+      }
+    }
+  }
+}
