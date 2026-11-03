@@ -199,8 +199,13 @@ footer small { font-size: 10px; }
   .portrait { width: 190px; height: 190px; }.profile-location { max-width: 215px; margin-inline: auto; }
   .profile-items { margin-block: 16px 10px; }.profile-items img { width: 55px; height: 55px; }
   .profile-facts > div { grid-template-columns: 1fr; gap: 3px; }
-  .scroll-label { font-size: 21px; }.profile-story > p { font-size: 12px; }
+  .profile-fact-group { grid-template-columns: minmax(0,1fr); gap: 4px; }
+  .fact-label { justify-self: start; }
+  .fact-value { margin-bottom: 8px; }
+  .fact-value:last-child { margin-bottom: 0; }
+  .scroll-label { max-width: 100%; padding-inline: 10px; font-size: 18px; }.profile-story > p { font-size: 12px; }
   .interest-slots { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .interest-slots span { font-size: 12px; }
   .project-top { flex-direction: column; align-items: start; gap: 10px; }
   .project-facts strong { font-size: 18px; }.project-facts div > span { font-size: 9px; }
   .workflow { gap: 6px; }.workflow li { font-size: 9px; }.project-links { gap: 18px; }
@@ -211,6 +216,7 @@ footer small { font-size: 10px; }
 @media (max-width: 360px) {
   .logo span { font-size: 12px; }.nav-actions a, .nav-actions button { font-size: 12px; }
   .masthead h1 { font-size: 26px; }
+  .scroll-label { font-size: 16px; }
   .project-facts strong { font-size: 16px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
